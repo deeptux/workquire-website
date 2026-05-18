@@ -29,8 +29,8 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs sm:text-sm text-white/85"
           data-testid="hero-badge"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 pulse-dot" />
-          <Sparkles size={14} className="text-amber-400" />
+          <span className="w-1.5 h-1.5 rounded-full bg-hl pulse-dot" />
+          <Sparkles size={14} className="text-hl" />
           <span className="tracking-wide">People. Skills. Results.</span>
         </motion.div>
 
