@@ -1,2 +1,6 @@
-/* App.css — minimal, most styling lives in index.css and Tailwind */
-.App { min-height: 100vh; background: #0B1120; }
+/* App.css — theme-aware wrapper. Most styling lives in index.css + Tailwind. */
+.App {
+  min-height: 100vh;
+  background: var(--bg-base);
+  transition: background-color 0.4s ease;
+}

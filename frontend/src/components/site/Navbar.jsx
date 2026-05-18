@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Brand } from "./Brand";
 import { Menu, X } from "lucide-react";
 import { Button } from "../ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { label: "About", href: "#about" },
@@ -55,6 +56,7 @@ export const Navbar = ({ onInquireVA, onInquireTeam }) => {
 
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-2">
+          <ThemeToggle className="mr-1" />
           <Button
             variant="ghost"
             onClick={onInquireVA}
@@ -72,16 +74,19 @@ export const Navbar = ({ onInquireVA, onInquireTeam }) => {
           </Button>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white bg-white/5"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          data-testid="nav-mobile-toggle"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        {/* Mobile toggle group */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white bg-white/5"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            data-testid="nav-mobile-toggle"
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}

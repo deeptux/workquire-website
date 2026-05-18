@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "./components/ui/sonner";
 
+import { ThemeProvider } from "./components/site/ThemeProvider";
 import Navbar from "./components/site/Navbar";
 import Hero from "./components/site/Hero";
 import About from "./components/site/About";
@@ -54,11 +55,13 @@ const Landing = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider defaultTheme="light">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

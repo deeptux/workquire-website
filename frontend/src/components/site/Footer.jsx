@@ -4,7 +4,11 @@ import { Phone, Mail, AtSign } from "lucide-react";
 
 export const Footer = ({ onInquireVA, onInquireTeam }) => {
   return (
-    <footer className="relative pt-20 sm:pt-28 pb-10 bg-[#070b16]" data-testid="site-footer">
+    <footer
+      className="relative pt-20 sm:pt-28 pb-10"
+      style={{ background: "var(--bg-footer)" }}
+      data-testid="site-footer"
+    >
       <div className="gradient-divider absolute top-0 left-0 right-0" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">

@@ -3,20 +3,22 @@ import { motion } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 import { Button } from "../ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useTheme } from "./ThemeProvider";
 
 export const Hero = ({ onInquireVA, onInquireTeam }) => {
+  const { theme } = useTheme();
   return (
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden grain" data-testid="hero-section">
       {/* Background gradient base */}
       <div className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(80% 60% at 50% 0%, rgba(245,158,11,0.10) 0%, rgba(11,17,32,0) 60%), linear-gradient(180deg, #0B1120 0%, #0B1120 70%, #0a0f1c 100%)",
+            "radial-gradient(80% 60% at 50% 0%, var(--hero-spot) 0%, transparent 60%), linear-gradient(180deg, var(--hero-base-1) 0%, var(--hero-base-1) 70%, var(--hero-base-2) 100%)",
         }}
       />
 
       {/* 3D Canvas */}
-      <HeroBackground />
+      <HeroBackground theme={theme} />
 
       {/* Foreground content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-32 lg:pt-36 pb-20">

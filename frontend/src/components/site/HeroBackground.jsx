@@ -5,20 +5,43 @@ import * as THREE from "three";
  * Hero 3D background — vanilla Three.js (no R3F JSX) to keep it compatible with
  * the visual-edits babel plugin that injects JSX-source attributes.
  *
- * Scene:
- *  - Wireframe icosahedrons (amber + cool blue) rotating slowly
- *  - Particle halo of ~280 amber/cool points
- *  - Mouse-driven gentle parallax
- *  - Vignette overlay drawn as DOM
+ * Scene swaps palette based on theme:
+ *   - dark:  amber wireframe + cool-blue + amber/cool particles, dark vignette
+ *   - light: deep-navy wireframe + sky-blue + blue particles, light vignette
  */
-export const HeroBackground = () => {
+const PALETTES = {
+  dark: {
+    inner: 0xf59e0b, innerOpacity: 0.55,
+    outer: 0x3b82f6, outerOpacity: 0.14,
+    primary: 0xf59e0b, secondary: 0x3b82f6,
+    coolThreshold: 0.78,
+    pointOpacity: 0.9,
+    vignette:
+      "radial-gradient(60% 50% at 50% 45%, rgba(11,17,32,0) 0%, rgba(11,17,32,0.55) 70%, rgba(11,17,32,1) 100%)",
+  },
+  light: {
+    inner: 0x1e40af, innerOpacity: 0.55,
+    outer: 0x60a5fa, outerOpacity: 0.30,
+    primary: 0x2563eb, secondary: 0x60a5fa,
+    coolThreshold: 0.55,
+    pointOpacity: 0.85,
+    vignette:
+      "radial-gradient(60% 50% at 50% 45%, rgba(234,244,255,0) 0%, rgba(234,244,255,0.5) 70%, rgba(234,244,255,1) 100%)",
+  },
+};
+
+export const HeroBackground = ({ theme = "light" }) => {
   const wrapRef = useRef(null);
+  const vignetteRef = useRef(null);
   const mouse = useRef({ x: 0, y: 0 });
   const target = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const wrap = wrapRef.current;
     if (!wrap) return;
+
+    const palette = PALETTES[theme] || PALETTES.light;
+    if (vignetteRef.current) vignetteRef.current.style.background = palette.vignette;
 
     const width = wrap.clientWidth;
     const height = wrap.clientHeight;
@@ -39,34 +62,31 @@ export const HeroBackground = () => {
     const core = new THREE.Group();
     root.add(core);
 
-    // Inner amber wireframe
     const innerGeom = new THREE.IcosahedronGeometry(1.7, 1);
     const innerMat = new THREE.MeshBasicMaterial({
-      color: 0xf59e0b,
+      color: palette.inner,
       wireframe: true,
       transparent: true,
-      opacity: 0.55,
+      opacity: palette.innerOpacity,
     });
     const innerMesh = new THREE.Mesh(innerGeom, innerMat);
     core.add(innerMesh);
 
-    // Outer cool wireframe
     const outerGeom = new THREE.IcosahedronGeometry(2.6, 0);
     const outerMat = new THREE.MeshBasicMaterial({
-      color: 0x3b82f6,
+      color: palette.outer,
       wireframe: true,
       transparent: true,
-      opacity: 0.14,
+      opacity: palette.outerOpacity,
     });
     const outerMesh = new THREE.Mesh(outerGeom, outerMat);
     core.add(outerMesh);
 
-    // Particle halo
     const PARTICLES = 280;
     const posArr = new Float32Array(PARTICLES * 3);
     const colArr = new Float32Array(PARTICLES * 3);
-    const amber = new THREE.Color(0xf59e0b);
-    const cool = new THREE.Color(0x3b82f6);
+    const cPrimary = new THREE.Color(palette.primary);
+    const cSecondary = new THREE.Color(palette.secondary);
     for (let i = 0; i < PARTICLES; i++) {
       const r = 3.4 + Math.random() * 4.2;
       const theta = Math.random() * Math.PI * 2;
@@ -74,8 +94,8 @@ export const HeroBackground = () => {
       posArr[i * 3 + 0] = r * Math.sin(phi) * Math.cos(theta);
       posArr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       posArr[i * 3 + 2] = r * Math.cos(phi);
-      const useCool = Math.random() > 0.78;
-      const c = useCool ? cool : amber;
+      const useSecondary = Math.random() > palette.coolThreshold;
+      const c = useSecondary ? cSecondary : cPrimary;
       colArr[i * 3 + 0] = c.r;
       colArr[i * 3 + 1] = c.g;
       colArr[i * 3 + 2] = c.b;
@@ -88,39 +108,31 @@ export const HeroBackground = () => {
       sizeAttenuation: true,
       vertexColors: true,
       transparent: true,
-      opacity: 0.9,
+      opacity: palette.pointOpacity,
       depthWrite: false,
     });
     const points = new THREE.Points(pGeom, pMat);
     root.add(points);
 
-    // Animation loop
     const clock = new THREE.Clock();
     let frameId;
     const tick = () => {
       const t = clock.getElapsedTime();
-
-      // Slow rotations
       core.rotation.x = t * 0.08;
       core.rotation.y = t * 0.12;
       const s = 1 + Math.sin(t * 0.6) * 0.04;
       core.scale.set(s, s, s);
-
       points.rotation.y = t * 0.05;
       points.rotation.x = Math.sin(t * 0.12) * 0.15;
-
-      // Mouse parallax (eased)
       target.current.x += (mouse.current.x * 0.25 - target.current.x) * 0.04;
       target.current.y += (mouse.current.y * 0.25 - target.current.y) * 0.04;
       root.rotation.y = target.current.x;
       root.rotation.x = target.current.y;
-
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(tick);
     };
     tick();
 
-    // Resize
     const onResize = () => {
       const w = wrap.clientWidth;
       const h = wrap.clientHeight;
@@ -131,7 +143,6 @@ export const HeroBackground = () => {
     const ro = new ResizeObserver(onResize);
     ro.observe(wrap);
 
-    // Pointer parallax (works for both mouse and touch)
     const onMove = (e) => {
       const w = window.innerWidth;
       const h = window.innerHeight;
@@ -143,7 +154,6 @@ export const HeroBackground = () => {
     window.addEventListener("mousemove", onMove);
     window.addEventListener("touchmove", onMove, { passive: true });
 
-    // Pause when hidden
     const onVis = () => {
       if (document.hidden) {
         if (frameId) cancelAnimationFrame(frameId);
@@ -170,18 +180,12 @@ export const HeroBackground = () => {
         wrap.removeChild(renderer.domElement);
       }
     };
-  }, []);
+  }, [theme]);
 
   return (
     <div className="absolute inset-0 z-0" aria-hidden="true" data-testid="hero-3d-canvas-wrapper">
       <div ref={wrapRef} className="absolute inset-0" />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(60% 50% at 50% 45%, rgba(11,17,32,0) 0%, rgba(11,17,32,0.55) 70%, rgba(11,17,32,1) 100%)",
-        }}
-      />
+      <div ref={vignetteRef} className="absolute inset-0 pointer-events-none" />
     </div>
   );
 };
