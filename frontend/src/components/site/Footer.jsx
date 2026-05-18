@@ -13,7 +13,10 @@ export const Footer = ({ onInquireVA, onInquireTeam }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-6">
-            <Brand size="lg" />
+            <div className="flex items-center gap-4 mb-2">
+              <Brand asImage size="lg" />
+              <Brand size="lg" />
+            </div>
             <h3 className="mt-6 font-display text-3xl sm:text-5xl text-white font-bold tracking-tight max-w-xl leading-[0.95]">
               Work with <span className="text-hl dark:text-amber-400">confidence</span>.
             </h3>

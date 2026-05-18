@@ -259,7 +259,34 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
 canvas { display: block; touch-action: pan-y; }
 
-/* Brand "o" — accent dot */
+/* Brand "o" — circular mark cropped from the company logo image.
+   The background-image is set inline in JSX (Brand.jsx) so css-loader
+   does not try to resolve the public asset as a module. */
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.85em;
+  height: 0.85em;
+  margin: 0 0.04em;
+  border-radius: 999px;
+  position: relative;
+  top: 0.06em;
+  background-size: 175% 175%;
+  background-position: 50% 28%;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  box-shadow:
+    0 0 0 1.5px rgba(37, 99, 235, 0.45),
+    0 0 18px rgba(37, 99, 235, 0.35);
+}
+html.dark .brand-mark {
+  box-shadow:
+    0 0 0 1.5px rgba(245, 158, 11, 0.4),
+    0 0 18px rgba(245, 158, 11, 0.45);
+}
+
+/* legacy alias kept for any leftover references */
 .brand-o {
   display: inline-flex;
   align-items: center;
@@ -271,10 +298,6 @@ canvas { display: block; touch-action: pan-y; }
   background: var(--accent);
   position: relative;
   top: 0.04em;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18), 0 0 24px rgba(37, 99, 235, 0.45);
-}
-html.dark .brand-o {
-  box-shadow: 0 0 0 2px rgba(245,158,11,0.18), 0 0 24px rgba(245,158,11,0.45);
 }
 .brand-o::after {
   content: "";
