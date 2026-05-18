@@ -40,8 +40,8 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
           className="h-display mt-6 max-w-4xl text-white"
         >
-          Where digital talent <br className="hidden sm:block" />
-          and business needs <span className="text-amber-400">come together</span>.
+          <span className="text-hl">Where digital talent <br className="hidden sm:block" />
+          and business needs</span> <span className="text-amber-400">come together</span>.
         </motion.h1>
 
         <motion.p

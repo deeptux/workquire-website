@@ -339,3 +339,31 @@ html:not(.dark) [class*="text-navy-900"].bg-amber-500 { color: #FFFFFF !importan
 .bg-hl { background-color: #fbbf24 !important; }
 .text-hl-deep { color: #f59e0b !important; }
 .from-hl { --tw-gradient-from: #fbbf24 !important; }
+
+/* Light-mode-only amber treatments (per design request):
+   - All "Inquire VA Now" buttons get an amber solid background
+   - Hero stat NUMBERS (not labels) become amber */
+html:not(.dark) [data-testid="hero-inquire-va-btn"],
+html:not(.dark) [data-testid="nav-inquire-va-btn"],
+html:not(.dark) [data-testid="mobile-inquire-va-btn"],
+html:not(.dark) [data-testid="process-inquire-va-btn"],
+html:not(.dark) [data-testid="footer-inquire-va-btn"] {
+  background-color: #fbbf24 !important;
+  border-color: #fbbf24 !important;
+  color: #0B2545 !important;
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.25), 0 10px 30px -10px rgba(251, 191, 36, 0.55);
+}
+html:not(.dark) [data-testid="hero-inquire-va-btn"]:hover,
+html:not(.dark) [data-testid="nav-inquire-va-btn"]:hover,
+html:not(.dark) [data-testid="mobile-inquire-va-btn"]:hover,
+html:not(.dark) [data-testid="process-inquire-va-btn"]:hover,
+html:not(.dark) [data-testid="footer-inquire-va-btn"]:hover {
+  background-color: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #0B2545 !important;
+}
+
+/* Hero stats numbers — amber only in light mode, labels stay default */
+html:not(.dark) [data-testid="hero-stats"] .font-display {
+  color: #fbbf24 !important;
+}
