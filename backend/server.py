@@ -28,6 +28,13 @@ NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'workquire@gmail.com')
 if RESEND_API_KEY:
     resend.api_key = RESEND_API_KEY
 
+# Configure logging early so helpers can use the logger safely
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 # Create the main app without a prefix
 app = FastAPI(title="WorkQuire API")
 
@@ -177,11 +184,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+logger.info("WorkQuire API starting up")
 
 
 @app.on_event("shutdown")
