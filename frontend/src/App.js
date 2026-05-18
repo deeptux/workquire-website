@@ -1,53 +1,64 @@
-import { useEffect } from "react";
-import "@/App.css";
+import React, { useState } from "react";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { Toaster } from "./components/ui/sonner";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import Navbar from "./components/site/Navbar";
+import Hero from "./components/site/Hero";
+import About from "./components/site/About";
+import Milestones from "./components/site/Milestones";
+import WhyBuilt from "./components/site/WhyBuilt";
+import Talents from "./components/site/Talents";
+import Process from "./components/site/Process";
+import Footer from "./components/site/Footer";
+import InquiryDialog from "./components/site/InquiryDialog";
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
+const Landing = () => {
+  const [inquiryOpen, setInquiryOpen] = useState(false);
+  const [inquiryType, setInquiryType] = useState("va");
+
+  const openInquiry = (type) => {
+    setInquiryType(type);
+    setInquiryOpen(true);
   };
 
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="App relative">
+      <Navbar
+        onInquireVA={() => openInquiry("va")}
+        onInquireTeam={() => openInquiry("team")}
+      />
+      <main>
+        <Hero
+          onInquireVA={() => openInquiry("va")}
+          onInquireTeam={() => openInquiry("team")}
+        />
+        <About />
+        <Milestones />
+        <WhyBuilt />
+        <Talents onInquireTeam={() => openInquiry("team")} />
+        <Process
+          onInquireVA={() => openInquiry("va")}
+          onInquireTeam={() => openInquiry("team")}
+        />
+      </main>
+      <Footer
+        onInquireVA={() => openInquiry("va")}
+        onInquireTeam={() => openInquiry("team")}
+      />
+      <InquiryDialog open={inquiryOpen} onOpenChange={setInquiryOpen} type={inquiryType} />
+      <Toaster theme="dark" position="bottom-right" richColors />
     </div>
   );
 };
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
