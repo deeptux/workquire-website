@@ -1,0 +1,187 @@
+{
+  "project_overview": {
+    "name": "WorkQuire Landing Page",
+    "theme_mode": "dark",
+    "archetype": "5 (Jewel & Luxury) with 4 (Swiss & High-Contrast) professional focus",
+    "visual_mood": "Sleek dark navy + warm amber accents (premium/professional)",
+    "3d_intensity": "Medium (Three.js animated mesh/particles in hero + scroll-linked depth)",
+    "app_type": "hybrid_fullstack"
+  },
+  "design_system": {
+    "colors": {
+      "background": {
+        "base": "#0B1120",
+        "surface": "#111827",
+        "surface_elevated": "#1F2937",
+        "glass": "rgba(17, 24, 39, 0.75)"
+      },
+      "accent": {
+        "primary": "#F59E0B",
+        "primary_hover": "#D97706",
+        "primary_glow": "rgba(245, 158, 11, 0.4)"
+      },
+      "text": {
+        "primary": "#F9FAFB",
+        "secondary": "#9CA3AF",
+        "muted": "#6B7280"
+      },
+      "border": {
+        "default": "rgba(255, 255, 255, 0.1)",
+        "highlight": "rgba(245, 158, 11, 0.3)"
+      }
+    },
+    "typography": {
+      "headings": {
+        "family": "Outfit, sans-serif",
+        "weights": ["light", "bold", "black"],
+        "scale": {
+          "h1": "text-5xl sm:text-6xl tracking-tight leading-none",
+          "h2": "text-3xl sm:text-4xl tracking-tight",
+          "h3": "text-xl sm:text-2xl tracking-wide",
+          "h4": "text-lg sm:text-xl font-bold"
+        }
+      },
+      "body": {
+        "family": "DM Sans, sans-serif",
+        "weights": ["regular", "medium"],
+        "scale": {
+          "base": "text-base leading-relaxed",
+          "small": "text-sm",
+          "label": "text-xs tracking-[0.2em] uppercase"
+        }
+      }
+    },
+    "surfaces": {
+      "glassmorphism": "backdrop-blur-xl bg-gray-900/70 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]",
+      "cards": "bg-gray-800/50 border border-white/5 rounded-2xl p-6 md:p-8 hover:border-amber-500/30 transition-colors duration-300",
+      "bento_grid": "grid grid-cols-1 md:grid-cols-12 gap-6"
+    }
+  },
+  "media": {
+    "hero_bg_fallback": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/068055d1-1f60-4642-82a7-a7c60c4d28bc/images/e667a89ddfdfb26042612a4c4272ec0773f4b815a678ed2d73a9e06e1d2423b4.png",
+      "description": "Abstract 3D mesh network in dark navy with amber glowing nodes. Use as background fallback for Three.js canvas or base layer."
+    },
+    "about_section": {
+      "url": "https://images.unsplash.com/photo-1771270759486-1f7703945072?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjB3b3Jrc3BhY2UlMjBkYXJrJTIwbGlnaHRpbmd8ZW58MHx8fHwxNzc5MDk4MTM3fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Modern dark-lit conference room."
+    },
+    "business_owner_struggle": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/068055d1-1f60-4642-82a7-a7c60c4d28bc/images/d19320d8e858807afd93fc526333d56fa46e2f61dfe89f27ae46460b98277afa.png",
+      "description": "Professional team collaborating in a dark modern office."
+    },
+    "freelancer_struggle": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/068055d1-1f60-4642-82a7-a7c60c4d28bc/images/bcc47c2811357fcb5cc3055a95594526fb2e91573cab10edbfa80aee1230c827.png",
+      "description": "Modern remote worker typing on laptop, dark cinematic lighting."
+    },
+    "process_section": {
+      "url": "https://images.unsplash.com/photo-1735948055457-8d816fb80a87?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjB3b3Jrc3BhY2UlMjBkYXJrJTIwbGlnaHRpbmd8ZW58MHx8fHwxNzc5MDk4MTM3fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Desk with computer in dark lighting."
+    }
+  },
+  "page_structure": [
+    {
+      "section": "Navigation",
+      "layout": "Sticky top navigation (z-50) using glassmorphism. Mobile responsive with hamburger menu.",
+      "content": {
+        "logo": "W<span class='text-amber-500'>o</span>rkQuire (stylized)",
+        "links": ["About", "Talents", "Process"],
+        "ctas": ["Inquire VA Now", "Inquire a Team Now"]
+      },
+      "interactions": "Nav background becomes solid/glass on scroll. CTAs have amber glow on hover."
+    },
+    {
+      "section": "Hero",
+      "layout": "Full viewport height (min-h-screen), centered content. 3D Canvas absolute positioned behind content.",
+      "content": {
+        "tagline": "People. Skills. Results.",
+        "headline": "Where Digital talent and Business needs come together",
+        "description": "Bridging top-tier talent with ambitious organizations. From onboarding to execution, we make collaboration simple and effective."
+      },
+      "tech": "React Three Fiber (@react-three/fiber, @react-three/drei). Render a subtle animated particle mesh or wireframe that reacts gently to mouse movement and scroll. Keep it dark navy and amber to match the aesthetic."
+    },
+    {
+      "section": "About Us & Mission/Vision",
+      "layout": "Bento Grid (Mode A: 'Tetris' Grid). Large text focus. Wide gaps (gap-8).",
+      "content": {
+        "about": "We bridge talent by recruiting and developing skilled individuals, then matching them with organizations that need specialized online services.",
+        "mission": "Prioritizing professionalism, accountability, and performance to help clients achieve operational excellence.",
+        "vision": "To become a trusted partner that helps businesses scale with reliable remote professionals, providing freelancers with stable, growth-oriented career opportunities."
+      }
+    },
+    {
+      "section": "Milestones (Timeline)",
+      "layout": "Vertical line down the center (or left on mobile). Staggered scroll-reveal cards.",
+      "content": [
+        { "title": "Founding Year (2021)", "desc": "Started by referring talents to clients, friends, and family." },
+        { "title": "Growing Demand", "desc": "Increased need for specialized digital professionals." },
+        { "title": "Freelance Network Growth", "desc": "Expanding access to skilled talents across multiple roles." },
+        { "title": "Formal Launch", "desc": "Established as a hiring agency focused on alignment and performance." }
+      ]
+    },
+    {
+      "section": "Why We Built WorkQuire",
+      "layout": "Split layout (2 columns on desktop). Left: Business Owners. Right: Freelancers. Use images as atmospheric backgrounds or alongside text.",
+      "content": {
+        "business_owners": ["Can’t find the right talent", "Overpaying with poor results", "Misaligned expectations", "Trust issues", "No time to hire"],
+        "freelancers": ["Low or unfair pay", "Late or unpaid work", "Work used without permission", "Limited access to clients", "No clear agreements"],
+        "resolution": "A structured, trustworthy hiring system that protects both businesses and talents."
+      }
+    },
+    {
+      "section": "Talents We Have",
+      "layout": "Dense Grid (Mode B: 'Control Room' Grid). Uses 1px solid borders, hover states to highlight amber.",
+      "content": [
+        "Media Buyers / Paid Ads", "Organic Marketing / Content Creators", "Social Media Managers", "Graphic Designers", "Video Editors", "Web Developers", "Virtual Assistants", "Customer Support", "Trainers / Coaches", "Consultants", "Brand Strategists", "Data Analysts", "Sales Closers", "Admin Assistants"
+      ]
+    },
+    {
+      "section": "Process (How to work with us)",
+      "layout": "3-column grid for steps. Generous padding (p-12).",
+      "content": [
+        { "step": "01", "title": "Tell Us What You Need", "desc": "Share your business goals, skills needed, and expectations." },
+        { "step": "02", "title": "We Match You", "desc": "We carefully recommend qualified talent aligned with your needs." },
+        { "step": "03", "title": "Collaborate & Scale", "desc": "Work with your chosen talent and focus on growing your business." }
+      ]
+    },
+    {
+      "section": "Inquiry Forms (VA & Team)",
+      "layout": "Rendered as specialized contact sections or Shadcn Dialog modals. Must connect to a backend API to save to DB and send email.",
+      "content": {
+        "fields": ["Name", "Email", "Company", "Required Role/Skills", "Message"]
+      }
+    },
+    {
+      "section": "Footer & Contact",
+      "layout": "Massive spacing (py-24). High contrast (Darkest background).",
+      "content": {
+        "phone": "+63 915 042 3954",
+        "email": "workquire@gmail.com",
+        "social": "@WorkQuire",
+        "tagline": "WORK WITH CONFIDENCE"
+      }
+    }
+  ],
+  "development_rules": {
+    "tech_stack": [
+      "React.js",
+      "Tailwind CSS",
+      "Shadcn UI (Customized for Dark/Amber theme)",
+      "Framer Motion (for scroll reveals)",
+      "React Three Fiber & Drei (for 3D Hero)",
+      "Lucide React (Icons)"
+    ],
+    "styling": {
+      "focus_states": "focus:ring-2 focus:ring-amber-500 focus:outline-none",
+      "responsive": "Mobile-first down to 320px. Use clamp() for fluid typography on headings.",
+      "animations": "Use Framer Motion 'whileInView' for scroll reveals. Keep 3D animations in Hero subtle (use useFrame for slow rotation)."
+    },
+    "testing": {
+      "data_testid": "ALL interactive elements (buttons, links, inputs, form submissions) MUST have a data-testid attribute in kebab-case format based on their role (e.g., data-testid='inquire-va-button')."
+    },
+    "backend": {
+      "inquiry_forms": "Implement FastAPI endpoints to handle form submissions (VA Inquiry and Team Inquiry). Save to SQLite/PostgreSQL DB and trigger a mock/real email notification."
+    },
+    "file_extensions": "Use .js and .jsx extensions for frontend files (not .tsx)."
+  }
+}
