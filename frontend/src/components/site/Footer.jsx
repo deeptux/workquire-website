@@ -15,7 +15,7 @@ export const Footer = ({ onInquireVA, onInquireTeam }) => {
           <div className="md:col-span-6">
             <Brand size="lg" />
             <h3 className="mt-6 font-display text-3xl sm:text-5xl text-white font-bold tracking-tight max-w-xl leading-[0.95]">
-              Work with <span className="text-hl">confidence</span>.
+              Work with <span className="text-hl dark:text-amber-400">confidence</span>.
             </h3>
             <p className="mt-5 text-white/55 max-w-md">
               People. Skills. Results — assembled around your goals. Talk to us and we'll source the right talent for your business.

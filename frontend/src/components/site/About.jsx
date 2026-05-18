@@ -16,7 +16,7 @@ export const About = () => {
         <motion.div {...fadeUp} className="max-w-2xl">
           <div className="eyebrow">Who we are</div>
           <h2 className="h-section mt-3 text-white">
-            We build the bridge between <span className="text-amber-400">talent</span> and <span className="text-hl">ambition</span>.
+            We build the bridge between <span className="text-amber-400">talent</span> and <span className="text-hl dark:text-amber-400">ambition</span>.
           </h2>
           <p className="mt-5 text-white/65 text-base sm:text-lg leading-relaxed">
             We recruit and develop skilled individuals, then match them with organizations that need

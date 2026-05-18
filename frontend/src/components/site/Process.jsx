@@ -34,7 +34,7 @@ export const Process = ({ onInquireVA, onInquireTeam }) => {
         >
           <div className="eyebrow">How to work with us</div>
           <h2 className="h-section mt-3 text-white">
-            Three steps. <span className="text-hl">Zero guesswork.</span>
+            Three steps. <span className="text-hl dark:text-amber-400">Zero guesswork.</span>
           </h2>
         </motion.div>
 

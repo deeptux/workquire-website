@@ -330,13 +330,12 @@ html:not(.dark) [class*="text-navy-900"].bg-amber-500 { color: #FFFFFF !importan
 .App { background: var(--bg-base); min-height: 100vh; transition: background-color 0.4s ease; }
 
 /* =============================================================
-   HIGHLIGHT TOKEN — fixed warm-amber accent (#fbbf24) that does
-   NOT swap with the theme. Used sparingly in select headlines to
-   create a balanced blue + gold two-tone in light mode (and reads
-   as the existing amber-400 in dark mode).
+   HIGHLIGHT TOKEN — warm-amber accent (#fbbf24) applied ONLY in
+   light mode. In dark mode the class has no effect, so each
+   element falls back to its dark-mode class (e.g., dark:text-amber-400).
    ============================================================= */
-.text-hl { color: #fbbf24 !important; }
-.bg-hl { background-color: #fbbf24 !important; }
+html:not(.dark) .text-hl { color: #fbbf24 !important; }
+html:not(.dark) .bg-hl { background-color: #fbbf24 !important; }
 .text-hl-deep { color: #f59e0b !important; }
 .from-hl { --tw-gradient-from: #fbbf24 !important; }
 
