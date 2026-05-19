@@ -38,6 +38,23 @@ logger = logging.getLogger(__name__)
 # Create the main app without a prefix
 app = FastAPI(title="WorkQuire API")
 
+
+def _cors_origins() -> list[str]:
+    raw = os.environ.get("CORS_ORIGINS", "*").strip()
+    if raw == "*":
+        return ["*"]
+    return [o.strip() for o in raw.split(",") if o.strip()]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=_cors_origins(),
+    allow_origin_regex=r"https://(.*\.)?workquire\.com",
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
@@ -176,15 +193,7 @@ async def list_inquiries():
 # Include the router
 app.include_router(api_router)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-logger.info("WorkQuire API starting up")
+logger.info("WorkQuire API starting up — CORS origins: %s", _cors_origins())
 
 
 @app.on_event("shutdown")
