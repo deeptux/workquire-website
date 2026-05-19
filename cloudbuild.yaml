@@ -1,8 +1,8 @@
-# One pipeline: build backend/ → push to Artifact Registry → deploy Cloud Run
-# Trigger: Configuration file = /cloudbuild.yaml (repo root)
+# Build → push → deploy (push MUST run before deploy; `images:` only pushes after all steps)
 
 steps:
   - name: gcr.io/cloud-builders/docker
+    id: build
     args:
       - build
       - -t
@@ -12,21 +12,25 @@ steps:
       - .
     dir: backend
 
+  - name: gcr.io/cloud-builders/docker
+    id: push
+    args:
+      - push
+      - asia-southeast1-docker.pkg.dev/deeptuxpopic/workquire-website/workquire-website:$COMMIT_SHA
+
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: deploy
     entrypoint: gcloud
     args:
       - run
       - deploy
       - workquire-website
+      - --project=deeptuxpopic
       - --image=asia-southeast1-docker.pkg.dev/deeptuxpopic/workquire-website/workquire-website:$COMMIT_SHA
       - --region=asia-southeast1
       - --platform=managed
       - --allow-unauthenticated
       - --quiet
-
-# Cloud Build pushes this image after the build step (no separate push step needed)
-images:
-  - asia-southeast1-docker.pkg.dev/deeptuxpopic/workquire-website/workquire-website:$COMMIT_SHA
 
 options:
   logging: CLOUD_LOGGING_ONLY
