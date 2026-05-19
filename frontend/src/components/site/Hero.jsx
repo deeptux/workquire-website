@@ -74,7 +74,7 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
             className="group bg-white/5 border-white/15 text-white hover:bg-white/10 hover:text-white rounded-full px-6 py-6 text-base"
             data-testid="hero-inquire-va-btn"
           >
-            Inquire Talents Team Now
+            Get Talent Now
             <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>

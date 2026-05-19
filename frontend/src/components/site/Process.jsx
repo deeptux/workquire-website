@@ -87,7 +87,7 @@ export const Process = ({ onInquireVA, onInquireTeam }) => {
               className="bg-transparent border-white/15 text-white hover:bg-white/5 hover:text-white rounded-full px-6"
               data-testid="process-inquire-va-btn"
             >
-              Inquire Talent Now
+              Get Talent Now
             </Button>
             <Button
               onClick={onInquireTeam}
