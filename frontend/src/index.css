@@ -39,6 +39,11 @@
   --hero-base-1: #EAF4FF;
   --hero-base-2: #DCEDFF;
   --grain-mix: multiply;
+  /* warm-amber text legibility on light surfaces — edit once, applies via .text-hl rules */
+  --text-hl-shadow:
+    0 0.35px 0 rgba(11, 37, 69, 0.22),
+    0 0.75px 1.5px rgba(11, 37, 69, 0.12),
+    0 1px 10px rgba(11, 37, 69, 0.07);
 
   /* shadcn HSL (light) */
   --background: 213 100% 96%;
@@ -152,6 +157,18 @@ html.dark ::-webkit-scrollbar-thumb { background: #374151; }
   font-weight: 600;
 }
 
+/* Mission / Vision card labels — same 40px row as w-10 h-10 icon boxes */
+.card-eyebrow {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  font-size: 1.875rem;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(18px) saturate(150%);
@@ -159,7 +176,9 @@ html.dark ::-webkit-scrollbar-thumb { background: #374151; }
   border: 1px solid var(--border-default);
 }
 html.dark .glass {
-  background: rgba(17, 24, 39, 0.55);
+  background: rgba(17, 24, 39, 0.75);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .glass-strong {
@@ -169,7 +188,9 @@ html.dark .glass {
   border-bottom: 1px solid var(--border-default);
 }
 html.dark .glass-strong {
-  background: rgba(11, 17, 32, 0.85);
+  background: rgba(11, 17, 32, 0.88);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .amber-glow {
@@ -357,13 +378,18 @@ html:not(.dark) [class*="text-navy-900"].bg-amber-500 { color: #FFFFFF !importan
    light mode. In dark mode the class has no effect, so each
    element falls back to its dark-mode class (e.g., dark:text-amber-400).
    ============================================================= */
+html:not(.dark) .text-hl,
+html:not(.dark) .text-hl-deep,
+html:not(.dark) [data-testid="hero-stats"] .font-display {
+  text-shadow: var(--text-hl-shadow);
+}
 html:not(.dark) .text-hl { color: #fbbf24 !important; }
+html:not(.dark) .text-hl-deep { color: #f59e0b !important; }
 html:not(.dark) .bg-hl { background-color: #fbbf24 !important; }
-.text-hl-deep { color: #f59e0b !important; }
 .from-hl { --tw-gradient-from: #fbbf24 !important; }
 
 /* Light-mode-only amber treatments (per design request):
-   - All "Inquire VA Now" buttons get an amber solid background
+   - All "Inquire Talent Now" buttons get an amber solid background
    - Hero stat NUMBERS (not labels) become amber */
 html:not(.dark) [data-testid="hero-inquire-va-btn"],
 html:not(.dark) [data-testid="nav-inquire-va-btn"],
@@ -385,7 +411,7 @@ html:not(.dark) [data-testid="footer-inquire-va-btn"]:hover {
   color: #0B2545 !important;
 }
 
-/* Hero stats numbers — amber only in light mode, labels stay default */
+/* Hero stats numbers — amber only in light mode, labels stay default (shadow via --text-hl-shadow above) */
 html:not(.dark) [data-testid="hero-stats"] .font-display {
   color: #fbbf24 !important;
 }

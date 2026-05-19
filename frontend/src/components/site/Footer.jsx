@@ -21,7 +21,7 @@ export const Footer = ({ onInquireVA, onInquireTeam }) => {
               Work with <span className="text-hl dark:text-amber-400">confidence</span>.
             </h3>
             <p className="mt-5 text-white/55 max-w-md">
-              People. Skills. Results — assembled around your goals. Talk to us and we'll source the right talent for your business.
+              People. Skills. Results. Truly assembled around your goals. Talk to us, we'll source the right talent for your business.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <button
@@ -29,14 +29,14 @@ export const Footer = ({ onInquireVA, onInquireTeam }) => {
                 className="px-5 py-2.5 rounded-full border border-white/15 text-white hover:bg-white/5 transition text-sm"
                 data-testid="footer-inquire-va-btn"
               >
-                Inquire VA Now
+                Inquire Talent Now
               </button>
               <button
                 onClick={onInquireTeam}
                 className="px-5 py-2.5 rounded-full bg-amber-500 hover:bg-amber-600 text-navy-900 font-semibold transition text-sm"
                 data-testid="footer-inquire-team-btn"
               >
-                Inquire a Team Now
+                Inquire Talent Team Now
               </button>
             </div>
           </div>

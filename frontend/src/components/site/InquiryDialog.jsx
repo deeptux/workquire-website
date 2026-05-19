@@ -78,7 +78,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent
-        className="bg-navy-900 border border-white/10 text-white max-w-lg sm:max-w-xl rounded-2xl p-0 overflow-hidden"
+        className="bg-navy-900/95 border border-white/10 text-white max-w-lg sm:max-w-xl rounded-2xl p-0 overflow-hidden backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
         data-testid={`inquiry-dialog-${type}`}
       >
         {/* Header with accent strip */}

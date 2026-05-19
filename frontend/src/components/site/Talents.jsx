@@ -28,7 +28,7 @@ export const Talents = ({ onInquireTeam }) => {
       <div className="absolute inset-0 -z-10 pointer-events-none"
         style={{
           background:
-            "radial-gradient(50% 50% at 80% 10%, rgba(245,158,11,0.08) 0%, rgba(11,17,32,0) 60%)",
+            "radial-gradient(50% 50% at 80% 10%, var(--hero-spot) 0%, transparent 60%)",
         }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -46,7 +46,7 @@ export const Talents = ({ onInquireTeam }) => {
             </h2>
           </motion.div>
           <p className="text-white/55 max-w-md text-sm sm:text-base">
-            Need a role you don't see here? We source it for you — every placement is backed by our money-back guarantee.
+            Need a role you don't see here? We source it for you! Every placement is backed by our money-back guarantee.
           </p>
         </div>
 

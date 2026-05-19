@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase, UserRound } from "lucide-react";
+import { Briefcase, Lightbulb, UserRound } from "lucide-react";
 
 const business = [
   "Can't find the right talent",
@@ -23,14 +23,14 @@ const Col = ({ icon: Icon, label, title, items, accent, testid }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-80px" }}
     transition={{ duration: 0.6 }}
-    className={`relative rounded-3xl border border-white/10 bg-navy-800/40 p-6 sm:p-9 overflow-hidden`}
+    className="relative rounded-3xl border border-white/10 bg-navy-800/40 p-6 sm:p-9 overflow-hidden transition-colors duration-300 hover:border-amber-500/30"
     data-testid={testid}
   >
     <div className="flex items-center gap-3">
       <span className={`w-10 h-10 rounded-xl inline-flex items-center justify-center ${accent}`}>
         <Icon size={18} />
       </span>
-      <div className="eyebrow !text-white/55">{label}</div>
+      <div className="eyebrow dark:text-amber-400">{label}</div>
     </div>
     <h3 className="mt-5 font-display font-bold text-white text-xl sm:text-2xl">{title}</h3>
     <ul className="mt-6 space-y-3">
@@ -60,7 +60,7 @@ export const WhyBuilt = () => {
             Where businesses and talents <span className="text-amber-400">struggled</span>.
           </h2>
           <p className="mt-5 text-white/65 text-base sm:text-lg leading-relaxed">
-            Both sides operated in a system that lacked trust, clarity, and alignment. We built a
+            Both sides operated in a system that lacked trust, clarity & alignment. We built a
             structured, performance-driven partnership that protects everyone involved.
           </p>
         </motion.div>
@@ -92,9 +92,14 @@ export const WhyBuilt = () => {
           className="mt-10 sm:mt-14 rounded-3xl border border-amber-500/25 bg-amber-500/[0.04] p-6 sm:p-8 flex flex-col md:flex-row md:items-center gap-4"
           data-testid="why-built-resolution"
         >
-          <div className="text-amber-400 font-display font-bold text-2xl shrink-0">→</div>
+          <div
+            className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 inline-flex items-center justify-center text-hl dark:text-amber-400 shrink-0"
+            aria-hidden
+          >
+            <Lightbulb size={24} strokeWidth={2} />
+          </div>
           <p className="text-white/85 text-base sm:text-lg leading-relaxed">
-            That realization is what led us to build <span className="font-semibold">WorkQuire</span> — a structured,
+            That realization is what led us to build <span className="font-semibold">WorkQuire</span> → a structured,
             trustworthy hiring system that aligns expectations from the start and builds long-term, performance-driven partnerships.
           </p>
         </motion.div>

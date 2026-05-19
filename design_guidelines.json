@@ -86,7 +86,7 @@
       "content": {
         "logo": "W<span class='text-amber-500'>o</span>rkQuire (stylized)",
         "links": ["About", "Talents", "Process"],
-        "ctas": ["Inquire VA Now", "Inquire a Team Now"]
+        "ctas": ["Inquire Talent Now", "Inquire Talent Team Now"]
       },
       "interactions": "Nav background becomes solid/glass on scroll. CTAs have amber glow on hover."
     },
@@ -96,7 +96,7 @@
       "content": {
         "tagline": "People. Skills. Results.",
         "headline": "Where Digital talent and Business needs come together",
-        "description": "Bridging top-tier talent with ambitious organizations. From onboarding to execution, we make collaboration simple and effective."
+        "description": "Bridging top-tier talent w/ambitious organizations. From onboarding to execution, we make collaboration simple & effective."
       },
       "tech": "React Three Fiber (@react-three/fiber, @react-three/drei). Render a subtle animated particle mesh or wireframe that reacts gently to mouse movement and scroll. Keep it dark navy and amber to match the aesthetic."
     },
@@ -104,9 +104,9 @@
       "section": "About Us & Mission/Vision",
       "layout": "Bento Grid (Mode A: 'Tetris' Grid). Large text focus. Wide gaps (gap-8).",
       "content": {
-        "about": "We bridge talent by recruiting and developing skilled individuals, then matching them with organizations that need specialized online services.",
+        "about": "We bridge talent by recruiting and developing skilled individuals, then matching them w/organizations that need specialized online services.",
         "mission": "Prioritizing professionalism, accountability, and performance to help clients achieve operational excellence.",
-        "vision": "To become a trusted partner that helps businesses scale with reliable remote professionals, providing freelancers with stable, growth-oriented career opportunities."
+        "vision": "To become a trusted partner that helps businesses scale w/reliable remote professionals, providing freelancers w/stable, growth-oriented career opportunities."
       }
     },
     {

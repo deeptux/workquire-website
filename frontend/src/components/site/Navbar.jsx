@@ -63,14 +63,14 @@ export const Navbar = ({ onInquireVA, onInquireTeam }) => {
             className="text-white hover:text-amber-400 hover:bg-white/5 rounded-full px-5"
             data-testid="nav-inquire-va-btn"
           >
-            Inquire VA Now
+            Inquire Talent Now
           </Button>
           <Button
             onClick={onInquireTeam}
             className="bg-amber-500 text-navy-900 hover:bg-amber-600 rounded-full px-5 font-semibold amber-glow"
             data-testid="nav-inquire-team-btn"
           >
-            Inquire a Team Now
+            Inquire Talents Team Now
           </Button>
         </div>
 
@@ -115,14 +115,14 @@ export const Navbar = ({ onInquireVA, onInquireTeam }) => {
               className="w-full bg-transparent border-white/15 text-white hover:bg-white/5 rounded-full"
               data-testid="mobile-inquire-va-btn"
             >
-              Inquire VA Now
+              Inquire Talent Now
             </Button>
             <Button
               onClick={closeAnd(onInquireTeam)}
               className="w-full bg-amber-500 text-navy-900 hover:bg-amber-600 rounded-full font-semibold"
               data-testid="mobile-inquire-team-btn"
             >
-              Inquire a Team Now
+              Inquire Talents Team Now
             </Button>
           </div>
         </div>

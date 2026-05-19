@@ -1,7 +1,7 @@
 # WorkQuire — Product Requirements Document
 
 ## Original problem statement
-Build a landing page: convert the Canva portfolio https://cgonline.my.canva.site/workquire to a decent 3D immersive website — comparable to modern sites but not as flashy as https://www.shader.se/ — enough to feel alive. Top navigation must include "Inquire VA Now" and "Inquire a Team Now". Mobile responsive down to 320px.
+Build a landing page: convert the Canva portfolio https://cgonline.my.canva.site/workquire to a decent 3D immersive website — comparable to modern sites but not as flashy as https://www.shader.se/ — enough to feel alive. Top navigation must include "Inquire Talent Now" and "Inquire  TalentsTeam Now". Mobile responsive down to 320px.
 
 ## User choices (confirmed)
 - Visual mood: Sleek dark navy + warm amber accents (premium/professional)
@@ -18,7 +18,7 @@ Build a landing page: convert the Canva portfolio https://cgonline.my.canva.site
 
 ## Core requirements
 - Sticky glassmorphic top navigation w/ desktop links + mobile hamburger panel
-- Two prominent CTAs: "Inquire VA Now" and "Inquire a Team Now"
+- Two prominent CTAs: "Inquire Talent Now" and "Inquire Talents Team Now"
 - Subtle 3D hero (wireframe icosahedrons + amber/cool particle halo + mouse parallax)
 - Sections: Hero → About + Mission/Vision → Milestones → Why Built → Talents (14 roles) → Process (3 steps) → Footer/Contact
 - Inquiry dialog (reused for VA + Team) with validation, success state, sonner toasts

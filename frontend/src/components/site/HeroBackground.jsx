@@ -114,10 +114,11 @@ export const HeroBackground = ({ theme = "light" }) => {
     const points = new THREE.Points(pGeom, pMat);
     root.add(points);
 
-    const clock = new THREE.Clock();
+    const timer = new THREE.Timer();
     let frameId;
     const tick = () => {
-      const t = clock.getElapsedTime();
+      timer.update();
+      const t = timer.getElapsed();
       core.rotation.x = t * 0.08;
       core.rotation.y = t * 0.12;
       const s = 1 + Math.sin(t * 0.6) * 0.04;

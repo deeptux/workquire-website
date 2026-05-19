@@ -48,7 +48,7 @@ const Landing = () => {
         onInquireTeam={() => openInquiry("team")}
       />
       <InquiryDialog open={inquiryOpen} onOpenChange={setInquiryOpen} type={inquiryType} />
-      <Toaster theme="dark" position="bottom-right" richColors />
+      <Toaster position="bottom-right" richColors />
     </div>
   );
 };

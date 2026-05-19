@@ -46,7 +46,7 @@ export const Process = ({ onInquireVA, onInquireTeam }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="relative rounded-3xl border border-white/10 bg-navy-800/40 p-6 sm:p-8 lg:p-10 overflow-hidden group"
+              className="relative rounded-3xl border border-white/10 bg-navy-800/40 p-6 sm:p-8 lg:p-10 overflow-hidden group transition-colors duration-300 hover:border-amber-500/30"
               data-testid={`process-step-${i + 1}`}
             >
               <div className="step-number">{s.n}</div>
@@ -87,14 +87,14 @@ export const Process = ({ onInquireVA, onInquireTeam }) => {
               className="bg-transparent border-white/15 text-white hover:bg-white/5 hover:text-white rounded-full px-6"
               data-testid="process-inquire-va-btn"
             >
-              Inquire VA Now
+              Inquire Talent Now
             </Button>
             <Button
               onClick={onInquireTeam}
               className="bg-amber-500 hover:bg-amber-600 text-navy-900 font-semibold rounded-full px-6 amber-glow"
               data-testid="process-inquire-team-btn"
             >
-              Inquire a Team Now
+              Inquire Talents Team Now
             </Button>
           </div>
         </motion.div>

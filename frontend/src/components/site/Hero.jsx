@@ -41,7 +41,7 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
           className="h-display mt-6 max-w-4xl text-white"
         >
           <span className="text-hl">Where digital talent <br className="hidden sm:block" />
-          and business needs</span> <span className="text-amber-400">come together</span>.
+          and business needs</span> <span className="text-amber-400">come together.</span>
         </motion.h1>
 
         <motion.p
@@ -50,8 +50,8 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
           transition={{ duration: 0.8, delay: 0.25 }}
           className="mt-6 max-w-2xl text-base sm:text-lg text-white/70 leading-relaxed"
         >
-          WorkQuire bridges top-tier remote talent with ambitious organizations. From onboarding to execution,
-          we make collaboration simple, structured, and effective.
+          WorkQuire bridges top-tier remote talent w/ambitious organizations. From onboarding to execution,
+          we make collaboration simple, structured & effective.
         </motion.p>
 
         <motion.div
@@ -65,7 +65,7 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
             className="group bg-amber-500 hover:bg-amber-600 text-navy-900 font-semibold rounded-full px-6 py-6 text-base amber-glow"
             data-testid="hero-inquire-team-btn"
           >
-            Inquire a Team Now
+            Inquire Talents Team Now
             <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
           </Button>
           <Button
@@ -74,7 +74,7 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
             className="group bg-white/5 border-white/15 text-white hover:bg-white/10 hover:text-white rounded-full px-6 py-6 text-base"
             data-testid="hero-inquire-va-btn"
           >
-            Inquire VA Now
+            Inquire Talents Team Now
             <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
@@ -94,7 +94,7 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
             { k: "24/7", v: "Sourcing" },
           ].map((s, i) => (
             <div key={i} className="bg-navy-900/60 backdrop-blur px-4 py-4 sm:py-5">
-              <div className="font-display font-bold text-white text-xl sm:text-2xl">{s.k}</div>
+              <div className="font-display font-bold text-white dark:text-amber-400 text-xl sm:text-2xl">{s.k}</div>
               <div className="text-[11px] uppercase tracking-[0.18em] text-white/55 mt-1">{s.v}</div>
             </div>
           ))}
