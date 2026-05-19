@@ -1,33 +1,54 @@
 {
   "project_overview": {
     "name": "WorkQuire Landing Page",
-    "theme_mode": "dark",
+    "theme_mode": "light_and_dark",
     "archetype": "5 (Jewel & Luxury) with 4 (Swiss & High-Contrast) professional focus",
-    "visual_mood": "Sleek dark navy + warm amber accents (premium/professional)",
+    "visual_mood": "Deep navy foundation + cyan/blue accents from WorkQuire branding (premium/professional)",
     "3d_intensity": "Medium (Three.js animated mesh/particles in hero + scroll-linked depth)",
     "app_type": "hybrid_fullstack"
   },
   "design_system": {
+    "brand_palette": {
+      "deep_navy": "#080656",
+      "brand_blue": "#0767B3",
+      "cyan_accent": "#00B5D5",
+      "soft_cyan": "#79C2CF",
+      "light_sky": "#B0E4FA"
+    },
     "colors": {
       "background": {
-        "base": "#0B1120",
-        "surface": "#111827",
-        "surface_elevated": "#1F2937",
-        "glass": "rgba(17, 24, 39, 0.75)"
+        "base": "#080656",
+        "surface": "#070E48",
+        "surface_elevated": "#081F60",
+        "glass": "rgba(7, 14, 72, 0.78)"
       },
       "accent": {
-        "primary": "#F59E0B",
-        "primary_hover": "#D97706",
-        "primary_glow": "rgba(245, 158, 11, 0.4)"
+        "primary": "#00B5D5",
+        "primary_hover": "#0767B3",
+        "primary_glow": "rgba(0, 181, 213, 0.45)"
       },
       "text": {
-        "primary": "#F9FAFB",
-        "secondary": "#9CA3AF",
-        "muted": "#6B7280"
+        "primary": "#EAF8FD",
+        "secondary": "#C9E8F5",
+        "muted": "#9BC9DD"
       },
       "border": {
-        "default": "rgba(255, 255, 255, 0.1)",
-        "highlight": "rgba(245, 158, 11, 0.3)"
+        "default": "rgba(176, 228, 250, 0.16)",
+        "highlight": "rgba(121, 194, 207, 0.4)"
+      },
+      "light_mode": {
+        "base": "#B0E4FA",
+        "surface": "#D9F1F9",
+        "surface_elevated": "#EFFBFF",
+        "text_primary": "#080656",
+        "text_secondary": "rgba(8, 6, 86, 0.8)"
+      },
+      "dark_mode": {
+        "base": "#080656",
+        "surface": "#070E48",
+        "surface_elevated": "#081F60",
+        "text_primary": "#EAF8FD",
+        "text_secondary": "rgba(234, 248, 253, 0.76)"
       }
     },
     "typography": {
@@ -86,7 +107,7 @@
       "content": {
         "logo": "W<span class='text-amber-500'>o</span>rkQuire (stylized)",
         "links": ["About", "Talents", "Process"],
-        "ctas": ["Inquire Talent Now", "Inquire Talent Team Now"]
+        "ctas": ["Get Talent Now", "Inquire Talent Team Now"]
       },
       "interactions": "Nav background becomes solid/glass on scroll. CTAs have amber glow on hover."
     },
@@ -104,9 +125,9 @@
       "section": "About Us & Mission/Vision",
       "layout": "Bento Grid (Mode A: 'Tetris' Grid). Large text focus. Wide gaps (gap-8).",
       "content": {
-        "about": "We bridge talent by recruiting and developing skilled individuals, then matching them w/organizations that need specialized online services.",
-        "mission": "Prioritizing professionalism, accountability, and performance to help clients achieve operational excellence.",
-        "vision": "To become a trusted partner that helps businesses scale w/reliable remote professionals, providing freelancers w/stable, growth-oriented career opportunities."
+        "about": "We bridge talent by recruiting & developing skilled individuals, matching them with organizations that need specialized online services, and enabling smooth collaboration from onboarding to execution.",
+        "mission": "We prioritize professionalism, accountability & performance helping clients achieve operational excellence while building career pathways for modern digital talent.",
+        "vision": "To become a trusted partner that helps businesses scale with reliable remote professionals, while providing freelancers with stable, growth-oriented career opportunities"
       }
     },
     {

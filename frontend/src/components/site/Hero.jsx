@@ -94,7 +94,7 @@ export const Hero = ({ onInquireVA, onInquireTeam }) => {
             { k: "24/7", v: "Sourcing" },
           ].map((s, i) => (
             <div key={i} className="bg-navy-900/60 backdrop-blur px-4 py-4 sm:py-5">
-              <div className="font-display font-bold text-white dark:text-amber-400 text-xl sm:text-2xl">{s.k}</div>
+              <div className="font-display font-bold text-amber-400 text-xl sm:text-2xl">{s.k}</div>
               <div className="text-[11px] uppercase tracking-[0.18em] text-white/55 mt-1">{s.v}</div>
             </div>
           ))}

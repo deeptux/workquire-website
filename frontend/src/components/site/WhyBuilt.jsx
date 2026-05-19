@@ -57,7 +57,7 @@ export const WhyBuilt = () => {
         >
           <div className="eyebrow">Why we built WorkQuire</div>
           <h2 className="h-section mt-3 text-white">
-            Where businesses and talents <span className="text-amber-400">struggled</span>.
+            Where businesses and talents <span className="text-hl dark:text-amber-400">struggled</span>.
           </h2>
           <p className="mt-5 text-white/65 text-base sm:text-lg leading-relaxed">
             Both sides operated in a system that lacked trust, clarity & alignment. We built a

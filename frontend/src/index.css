@@ -6,114 +6,118 @@
 
 /* =============================================================
    THEME TOKENS
-   Default (no class)        = LIGHT  (blue palette like reference)
-   html.dark                  = DARK   (navy + amber — original look)
-   RGB triples are used so Tailwind's <alpha-value> modifiers work
-   (e.g., bg-navy-900/60, text-amber-400/30).
+   Default (no class) = LIGHT (airy sky/cyan + navy readability)
+   html.dark          = DARK  (deep navy + cyan/blue accents)
+   Palette source: frontend/public/branding.png
+   RGB triples are kept so Tailwind alpha modifiers still work.
    ============================================================= */
 :root {
-  /* "navy" tokens — used for surfaces */
-  --tw-navy-900: 234 244 255;   /* #EAF4FF — base bg */
-  --tw-navy-800: 220 237 255;   /* #DCEDFF — surface */
-  --tw-navy-700: 199 224 255;   /* #C7E0FF — elevated */
+  /* "navy" tokens — surface family */
+  --tw-navy-900: 176 228 250;   /* #B0E4FA */
+  --tw-navy-800: 217 241 249;   /* #D9F1F9 */
+  --tw-navy-700: 239 251 255;   /* #EFFBFF */
 
-  /* "amber" tokens — used as ACCENT (now royal/sky blue in light mode) */
-  --tw-amber-400: 59 130 246;   /* #3B82F6 */
-  --tw-amber-500: 37 99 235;    /* #2563EB */
-  --tw-amber-600: 29 78 216;    /* #1D4ED8 */
+  /* "amber" aliases retained for existing classes; now map to brand accents */
+  --tw-amber-400: 0 181 213;    /* #00B5D5 */
+  --tw-amber-500: 7 103 179;    /* #0767B3 */
+  --tw-amber-600: 8 6 86;       /* #080656 */
 
   /* semantic tokens used in CSS directly */
-  --bg-base: #EAF4FF;
-  --bg-surface: #DCEDFF;
-  --bg-elevated: #FFFFFF;
-  --bg-footer: #BCDDFF;
-  --text-fg: #0B2545;
-  --text-secondary: rgba(11, 37, 69, 0.72);
-  --text-muted: rgba(11, 37, 69, 0.5);
-  --border-default: rgba(11, 37, 69, 0.12);
-  --border-highlight: rgba(37, 99, 235, 0.45);
-  --accent: #2563EB;
-  --accent-strong: #1D4ED8;
-  --accent-glow: rgba(37, 99, 235, 0.35);
-  --hero-spot: rgba(37, 99, 235, 0.20);
-  --hero-base-1: #EAF4FF;
-  --hero-base-2: #DCEDFF;
+  --bg-base: #B0E4FA;
+  --bg-surface: #D9F1F9;
+  --bg-elevated: #EFFBFF;
+  --bg-footer: #79C2CF;
+  --text-fg: #080656;
+  --text-secondary: rgba(8, 6, 86, 0.8);
+  --text-muted: rgba(8, 6, 86, 0.62);
+  --border-default: rgba(8, 6, 86, 0.16);
+  --border-highlight: rgba(0, 181, 213, 0.45);
+  --accent: #0767B3;
+  --accent-strong: #080656;
+  --accent-soft: #00B5D5;
+  --accent-rgb: 7, 103, 179;
+  --accent-glow: rgba(0, 181, 213, 0.34);
+  --hero-spot: rgba(0, 181, 213, 0.24);
+  --hero-base-1: #B0E4FA;
+  --hero-base-2: #EAF8FD;
   --grain-mix: multiply;
-  /* warm-amber text legibility on light surfaces — edit once, applies via .text-hl rules */
+  /* Highlight text legibility on bright surfaces. */
   --text-hl-shadow:
-    0 0.35px 0 rgba(11, 37, 69, 0.22),
-    0 0.75px 1.5px rgba(11, 37, 69, 0.12),
-    0 1px 10px rgba(11, 37, 69, 0.07);
+    0 0.35px 0 rgba(8, 6, 86, 0.24),
+    0 0.75px 1.5px rgba(8, 6, 86, 0.14),
+    0 1px 10px rgba(8, 6, 86, 0.08);
 
   /* shadcn HSL (light) */
-  --background: 213 100% 96%;
-  --foreground: 215 80% 16%;
-  --card: 210 100% 94%;
-  --card-foreground: 215 80% 16%;
+  --background: 202 86% 84%;
+  --foreground: 241 89% 18%;
+  --card: 193 66% 89%;
+  --card-foreground: 241 89% 18%;
   --popover: 0 0% 100%;
-  --popover-foreground: 215 80% 16%;
-  --primary: 221 83% 53%;
-  --primary-foreground: 213 100% 96%;
-  --secondary: 213 95% 90%;
-  --secondary-foreground: 215 80% 16%;
-  --muted: 213 95% 90%;
-  --muted-foreground: 215 30% 38%;
-  --accent-bg: 213 95% 90%;
-  --accent-foreground: 215 80% 16%;
+  --popover-foreground: 241 89% 18%;
+  --primary: 206 92% 37%;
+  --primary-foreground: 195 100% 98%;
+  --secondary: 193 66% 89%;
+  --secondary-foreground: 241 89% 18%;
+  --muted: 193 66% 89%;
+  --muted-foreground: 241 45% 31%;
+  --accent-bg: 193 66% 89%;
+  --accent-foreground: 241 89% 18%;
   --destructive: 0 70% 50%;
   --destructive-foreground: 0 0% 100%;
-  --border: 215 50% 78%;
-  --input: 215 60% 85%;
-  --ring: 221 83% 53%;
+  --border: 241 45% 75%;
+  --input: 202 70% 80%;
+  --ring: 206 92% 37%;
   --radius: 0.75rem;
 }
 
 html.dark {
-  --tw-navy-900: 11 17 32;
-  --tw-navy-800: 17 24 39;
-  --tw-navy-700: 31 41 55;
+  --tw-navy-900: 8 6 86;
+  --tw-navy-800: 7 14 72;
+  --tw-navy-700: 8 31 96;
 
-  --tw-amber-400: 251 191 36;
-  --tw-amber-500: 245 158 11;
-  --tw-amber-600: 217 119 6;
+  --tw-amber-400: 121 194 207;
+  --tw-amber-500: 0 181 213;
+  --tw-amber-600: 7 103 179;
 
-  --bg-base: #0B1120;
-  --bg-surface: #111827;
-  --bg-elevated: #1F2937;
-  --bg-footer: #070b16;
-  --text-fg: #F9FAFB;
-  --text-secondary: rgba(249, 250, 251, 0.7);
-  --text-muted: rgba(249, 250, 251, 0.5);
-  --border-default: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(245, 158, 11, 0.35);
-  --accent: #F59E0B;
-  --accent-strong: #D97706;
-  --accent-glow: rgba(245, 158, 11, 0.4);
-  --hero-spot: rgba(245, 158, 11, 0.10);
-  --hero-base-1: #0B1120;
-  --hero-base-2: #0a0f1c;
+  --bg-base: #080656;
+  --bg-surface: #070E48;
+  --bg-elevated: #081F60;
+  --bg-footer: #050338;
+  --text-fg: #EAF8FD;
+  --text-secondary: rgba(234, 248, 253, 0.76);
+  --text-muted: rgba(234, 248, 253, 0.58);
+  --border-default: rgba(176, 228, 250, 0.16);
+  --border-highlight: rgba(121, 194, 207, 0.4);
+  --accent: #00B5D5;
+  --accent-strong: #0767B3;
+  --accent-soft: #79C2CF;
+  --accent-rgb: 0, 181, 213;
+  --accent-glow: rgba(0, 181, 213, 0.45);
+  --hero-spot: rgba(121, 194, 207, 0.2);
+  --hero-base-1: #080656;
+  --hero-base-2: #050338;
   --grain-mix: overlay;
 
   /* shadcn HSL (dark) */
-  --background: 222 47% 7%;
-  --foreground: 210 20% 98%;
-  --card: 217 33% 12%;
-  --card-foreground: 210 20% 98%;
-  --popover: 217 33% 12%;
-  --popover-foreground: 210 20% 98%;
-  --primary: 38 92% 50%;
-  --primary-foreground: 222 47% 7%;
-  --secondary: 217 33% 17%;
-  --secondary-foreground: 210 20% 98%;
-  --muted: 217 33% 17%;
-  --muted-foreground: 215 16% 65%;
-  --accent-bg: 217 33% 17%;
-  --accent-foreground: 210 20% 98%;
+  --background: 241 89% 18%;
+  --foreground: 195 100% 96%;
+  --card: 233 82% 20%;
+  --card-foreground: 195 100% 96%;
+  --popover: 233 82% 20%;
+  --popover-foreground: 195 100% 96%;
+  --primary: 190 100% 42%;
+  --primary-foreground: 241 89% 18%;
+  --secondary: 216 84% 24%;
+  --secondary-foreground: 195 100% 96%;
+  --muted: 216 84% 24%;
+  --muted-foreground: 193 42% 78%;
+  --accent-bg: 216 84% 24%;
+  --accent-foreground: 195 100% 96%;
   --destructive: 0 62.8% 50%;
   --destructive-foreground: 0 0% 98%;
-  --border: 217 33% 20%;
-  --input: 217 33% 17%;
-  --ring: 38 92% 50%;
+  --border: 216 84% 30%;
+  --input: 216 84% 24%;
+  --ring: 190 100% 42%;
 }
 
 html { scroll-behavior: smooth; }
@@ -137,7 +141,7 @@ body {
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-base); }
 ::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 999px; }
-html.dark ::-webkit-scrollbar-thumb { background: #374151; }
+html.dark ::-webkit-scrollbar-thumb { background: #0767B3; }
 
 @layer base {
   * { @apply border-border; }
@@ -195,13 +199,8 @@ html.dark .glass-strong {
 
 .amber-glow {
   box-shadow:
-    0 0 0 1px rgba(37, 99, 235, 0.25),
-    0 12px 40px -10px rgba(37, 99, 235, 0.45);
-}
-html.dark .amber-glow {
-  box-shadow:
-    0 0 0 1px rgba(245, 158, 11, 0.25),
-    0 12px 40px -10px rgba(245, 158, 11, 0.45);
+    0 0 0 1px rgba(var(--accent-rgb), 0.25),
+    0 12px 40px -10px var(--accent-glow);
 }
 
 .text-accent { color: var(--accent); }
@@ -230,7 +229,7 @@ html.dark .amber-glow {
 
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
-  50% { box-shadow: 0 0 0 14px rgba(245,158,11,0); }
+  50% { box-shadow: 0 0 0 14px rgba(var(--accent-rgb), 0); }
 }
 .pulse-dot { animation: pulseGlow 2.4s ease-out infinite; }
 
@@ -245,15 +244,10 @@ html.dark .amber-glow {
   font-weight: 800;
   font-size: clamp(3.5rem, 8vw, 6rem);
   line-height: 0.9;
-  background: linear-gradient(180deg, var(--accent) 0%, rgba(37, 99, 235, 0.15) 100%);
+  background: linear-gradient(180deg, var(--accent) 0%, rgba(var(--accent-rgb), 0.15) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-html.dark .step-number {
-  background: linear-gradient(180deg, #f59e0b 0%, rgba(245,158,11,0.15) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
 }
 
 button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
@@ -298,13 +292,8 @@ canvas { display: block; touch-action: pan-y; }
   background-repeat: no-repeat;
   background-color: #ffffff;
   box-shadow:
-    0 0 0 1.5px rgba(37, 99, 235, 0.45),
-    0 0 18px rgba(37, 99, 235, 0.35);
-}
-html.dark .brand-mark {
-  box-shadow:
-    0 0 0 1.5px rgba(245, 158, 11, 0.4),
-    0 0 18px rgba(245, 158, 11, 0.45);
+    0 0 0 1.5px rgba(var(--accent-rgb), 0.45),
+    0 0 18px var(--accent-glow);
 }
 
 /* legacy alias kept for any leftover references */
@@ -340,32 +329,32 @@ html.dark .brand-mark {
    the light-blue surfaces.
    ============================================================= */
 html:not(.dark) .text-white { color: #0B2545 !important; }
-html:not(.dark) .text-white\/30 { color: rgba(11,37,69,0.55) !important; }
-html:not(.dark) .text-white\/40 { color: rgba(11,37,69,0.6) !important; }
-html:not(.dark) .text-white\/45 { color: rgba(11,37,69,0.65) !important; }
-html:not(.dark) .text-white\/55 { color: rgba(11,37,69,0.72) !important; }
-html:not(.dark) .text-white\/60 { color: rgba(11,37,69,0.75) !important; }
-html:not(.dark) .text-white\/65 { color: rgba(11,37,69,0.78) !important; }
-html:not(.dark) .text-white\/70 { color: rgba(11,37,69,0.82) !important; }
-html:not(.dark) .text-white\/75 { color: rgba(11,37,69,0.85) !important; }
-html:not(.dark) .text-white\/80 { color: rgba(11,37,69,0.88) !important; }
-html:not(.dark) .text-white\/85 { color: rgba(11,37,69,0.92) !important; }
+html:not(.dark) .text-white\/30 { color: rgba(8, 6, 86, 0.55) !important; }
+html:not(.dark) .text-white\/40 { color: rgba(8, 6, 86, 0.6) !important; }
+html:not(.dark) .text-white\/45 { color: rgba(8, 6, 86, 0.65) !important; }
+html:not(.dark) .text-white\/55 { color: rgba(8, 6, 86, 0.72) !important; }
+html:not(.dark) .text-white\/60 { color: rgba(8, 6, 86, 0.75) !important; }
+html:not(.dark) .text-white\/65 { color: rgba(8, 6, 86, 0.78) !important; }
+html:not(.dark) .text-white\/70 { color: rgba(8, 6, 86, 0.82) !important; }
+html:not(.dark) .text-white\/75 { color: rgba(8, 6, 86, 0.85) !important; }
+html:not(.dark) .text-white\/80 { color: rgba(8, 6, 86, 0.88) !important; }
+html:not(.dark) .text-white\/85 { color: rgba(8, 6, 86, 0.92) !important; }
 
-html:not(.dark) .bg-white\/5 { background-color: rgba(30, 64, 175, 0.05) !important; }
-html:not(.dark) .bg-white\/10 { background-color: rgba(30, 64, 175, 0.10) !important; }
-html:not(.dark) .bg-white\/\[0\.04\] { background-color: rgba(30, 64, 175, 0.04) !important; }
+html:not(.dark) .bg-white\/5 { background-color: rgba(7, 103, 179, 0.05) !important; }
+html:not(.dark) .bg-white\/10 { background-color: rgba(7, 103, 179, 0.1) !important; }
+html:not(.dark) .bg-white\/\[0\.04\] { background-color: rgba(7, 103, 179, 0.04) !important; }
 
-html:not(.dark) .border-white\/5 { border-color: rgba(11, 37, 69, 0.08) !important; }
-html:not(.dark) .border-white\/10 { border-color: rgba(11, 37, 69, 0.12) !important; }
-html:not(.dark) .border-white\/15 { border-color: rgba(11, 37, 69, 0.18) !important; }
-html:not(.dark) .hover\:bg-white\/5:hover { background-color: rgba(30, 64, 175, 0.07) !important; }
-html:not(.dark) .hover\:bg-white\/10:hover { background-color: rgba(30, 64, 175, 0.12) !important; }
-html:not(.dark) .focus-visible\:ring-amber-500\/60:focus-visible { box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.6) !important; }
+html:not(.dark) .border-white\/5 { border-color: rgba(8, 6, 86, 0.08) !important; }
+html:not(.dark) .border-white\/10 { border-color: rgba(8, 6, 86, 0.13) !important; }
+html:not(.dark) .border-white\/15 { border-color: rgba(8, 6, 86, 0.2) !important; }
+html:not(.dark) .hover\:bg-white\/5:hover { background-color: rgba(7, 103, 179, 0.08) !important; }
+html:not(.dark) .hover\:bg-white\/10:hover { background-color: rgba(7, 103, 179, 0.13) !important; }
+html:not(.dark) .focus-visible\:ring-amber-500\/60:focus-visible { box-shadow: 0 0 0 2px rgba(7, 103, 179, 0.6) !important; }
 
 /* Hover ring helpers used in cards */
 html:not(.dark) .hover\:border-amber-500\/30:hover { border-color: rgba(37, 99, 235, 0.4) !important; }
 
-/* Primary CTA: amber-bg + navy-900 text → blue-bg + white text in light mode */
+/* Primary CTA: keep readable contrast in light mode. */
 html:not(.dark) .bg-amber-500.text-navy-900,
 html:not(.dark) .bg-amber-500.hover\:bg-amber-600 { color: #FFFFFF !important; }
 html:not(.dark) [class*="text-navy-900"].bg-amber-500 { color: #FFFFFF !important; }
@@ -374,44 +363,50 @@ html:not(.dark) [class*="text-navy-900"].bg-amber-500 { color: #FFFFFF !importan
 .App { background: var(--bg-base); min-height: 100vh; transition: background-color 0.4s ease; }
 
 /* =============================================================
-   HIGHLIGHT TOKEN — warm-amber accent (#fbbf24) applied ONLY in
-   light mode. In dark mode the class has no effect, so each
-   element falls back to its dark-mode class (e.g., dark:text-amber-400).
+   HIGHLIGHT TOKEN — brand-driven light-mode emphasis.
+   In dark mode these classes still fall back to dark:* utility classes.
    ============================================================= */
 html:not(.dark) .text-hl,
 html:not(.dark) .text-hl-deep,
 html:not(.dark) [data-testid="hero-stats"] .font-display {
   text-shadow: var(--text-hl-shadow);
 }
-html:not(.dark) .text-hl { color: #fbbf24 !important; }
-html:not(.dark) .text-hl-deep { color: #f59e0b !important; }
-html:not(.dark) .bg-hl { background-color: #fbbf24 !important; }
-.from-hl { --tw-gradient-from: #fbbf24 !important; }
+html:not(.dark) .text-hl { color: #0767B3 !important; }
+html:not(.dark) .text-hl-deep { color: #080656 !important; }
+html:not(.dark) .bg-hl { background-color: #00B5D5 !important; }
+.from-hl { --tw-gradient-from: #00B5D5 !important; }
 
-/* Light-mode-only amber treatments (per design request):
-   - All "Inquire Talent Now" buttons get an amber solid background
-   - Hero stat NUMBERS (not labels) become amber */
-html:not(.dark) [data-testid="hero-inquire-va-btn"],
-html:not(.dark) [data-testid="nav-inquire-va-btn"],
-html:not(.dark) [data-testid="mobile-inquire-va-btn"],
-html:not(.dark) [data-testid="process-inquire-va-btn"],
-html:not(.dark) [data-testid="footer-inquire-va-btn"] {
-  background-color: #fbbf24 !important;
-  border-color: #fbbf24 !important;
-  color: #0B2545 !important;
-  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.25), 0 10px 30px -10px rgba(251, 191, 36, 0.55);
+/* Mission / Vision photo cards — mode-specific text on image overlays */
+html:not(.dark) .on-image-card .text-white,
+html:not(.dark) .on-image-card h3 {
+  color: #080656 !important;
+  text-shadow: none;
 }
-html:not(.dark) [data-testid="hero-inquire-va-btn"]:hover,
-html:not(.dark) [data-testid="nav-inquire-va-btn"]:hover,
-html:not(.dark) [data-testid="mobile-inquire-va-btn"]:hover,
-html:not(.dark) [data-testid="process-inquire-va-btn"]:hover,
-html:not(.dark) [data-testid="footer-inquire-va-btn"]:hover {
-  background-color: #f59e0b !important;
-  border-color: #f59e0b !important;
-  color: #0B2545 !important;
+html:not(.dark) .on-image-card .text-white\/65 {
+  color: rgba(8, 6, 86, 0.84) !important;
+}
+html:not(.dark) .on-image-card .text-white\/15 {
+  color: rgba(8, 6, 86, 0.35) !important;
+}
+html:not(.dark) .on-image-card .text-hl,
+html:not(.dark) .on-image-card .text-amber-400 {
+  color: #0767B3 !important;
+  text-shadow: none;
 }
 
-/* Hero stats numbers — amber only in light mode, labels stay default (shadow via --text-hl-shadow above) */
-html:not(.dark) [data-testid="hero-stats"] .font-display {
-  color: #fbbf24 !important;
+html.dark .on-image-card .text-white,
+html.dark .on-image-card h3 {
+  color: #F8FCFF !important;
+  text-shadow: 0 1px 2px rgba(5, 3, 56, 0.5);
+}
+html.dark .on-image-card .text-white\/65 {
+  color: rgba(234, 248, 253, 0.92) !important;
+}
+html.dark .on-image-card .text-white\/15 {
+  color: rgba(234, 248, 253, 0.35) !important;
+}
+html.dark .on-image-card .text-hl,
+html.dark .on-image-card .text-amber-400 {
+  color: #79C2CF !important;
+  text-shadow: 0 1px 1px rgba(5, 3, 56, 0.45);
 }

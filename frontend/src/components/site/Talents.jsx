@@ -42,7 +42,7 @@ export const Talents = ({ onInquireTeam }) => {
           >
             <div className="eyebrow">Talents we have</div>
             <h2 className="h-section mt-3 text-white">
-              A roster built for <span className="text-amber-400">every kind of <span className="text-hl dark:text-amber-400">growth</span></span>.
+              A roster built for <span className="text-hl dark:text-amber-400">every kind of growth</span>.
             </h2>
           </motion.div>
           <p className="text-white/55 max-w-md text-sm sm:text-base">

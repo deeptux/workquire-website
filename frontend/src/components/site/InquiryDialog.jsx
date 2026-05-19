@@ -78,7 +78,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent
-        className="bg-navy-900/95 border border-white/10 text-white max-w-lg sm:max-w-xl rounded-2xl p-0 overflow-hidden backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
+        className="bg-navy-700/95 dark:bg-navy-900/95 border border-white/10 text-white max-w-lg sm:max-w-xl rounded-2xl p-0 overflow-hidden backdrop-blur-xl shadow-[0_20px_60px_rgba(8,6,86,0.24)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
         data-testid={`inquiry-dialog-${type}`}
       >
         {/* Header with accent strip */}
@@ -91,7 +91,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
             <DialogTitle className="font-display text-2xl sm:text-3xl text-white tracking-tight">
               {isTeam ? "Tell us about your team needs" : "Find your perfect Virtual Assistant"}
             </DialogTitle>
-            <DialogDescription className="text-white/60 text-sm">
+            <DialogDescription className="text-white/65 text-sm">
               We'll review your details and respond within 24 hours.
             </DialogDescription>
           </DialogHeader>
@@ -116,7 +116,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
                   value={form.name}
                   onChange={update("name")}
                   placeholder="Jane Doe"
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/30 focus-visible:ring-amber-500/60"
+                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/45 focus-visible:ring-amber-500/60"
                   data-testid="inquiry-input-name"
                 />
               </div>
@@ -129,7 +129,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
                   value={form.email}
                   onChange={update("email")}
                   placeholder="you@company.com"
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/30 focus-visible:ring-amber-500/60"
+                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/45 focus-visible:ring-amber-500/60"
                   data-testid="inquiry-input-email"
                 />
               </div>
@@ -143,7 +143,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
                   value={form.company}
                   onChange={update("company")}
                   placeholder="Acme Inc."
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/30 focus-visible:ring-amber-500/60"
+                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/45 focus-visible:ring-amber-500/60"
                   data-testid="inquiry-input-company"
                 />
               </div>
@@ -154,7 +154,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
                   value={form.phone}
                   onChange={update("phone")}
                   placeholder="+1 555 0100"
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/30 focus-visible:ring-amber-500/60"
+                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/45 focus-visible:ring-amber-500/60"
                   data-testid="inquiry-input-phone"
                 />
               </div>
@@ -170,7 +170,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
                   value={form.role}
                   onChange={update("role")}
                   placeholder={isTeam ? "e.g. Designer + Editor + VA" : "e.g. Calendar + Email mgmt"}
-                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/30 focus-visible:ring-amber-500/60"
+                  className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/45 focus-visible:ring-amber-500/60"
                   data-testid="inquiry-input-role"
                 />
               </div>
@@ -182,7 +182,7 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
                     value={form.team_size}
                     onChange={update("team_size")}
                     placeholder="e.g. 3-5"
-                    className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/30 focus-visible:ring-amber-500/60"
+                    className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/45 focus-visible:ring-amber-500/60"
                     data-testid="inquiry-input-team-size"
                   />
                 </div>
@@ -198,13 +198,13 @@ export const InquiryDialog = ({ open, onOpenChange, type = "va" }) => {
                 onChange={update("message")}
                 rows={4}
                 placeholder="Project scope, timeline, anything we should know..."
-                className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/30 focus-visible:ring-amber-500/60"
+                className="mt-1.5 bg-white/[0.04] border-white/10 text-white placeholder:text-white/45 focus-visible:ring-amber-500/60"
                 data-testid="inquiry-input-message"
               />
             </div>
 
             <div className="flex items-center justify-between pt-2 gap-3 flex-wrap">
-              <p className="text-[11px] text-white/40 max-w-xs">By submitting you agree to be contacted by WorkQuire about your inquiry.</p>
+              <p className="text-[11px] text-white/55 max-w-xs">By submitting you agree to be contacted by WorkQuire about your inquiry.</p>
               <Button
                 type="submit"
                 disabled={submitting}
