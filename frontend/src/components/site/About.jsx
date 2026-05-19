@@ -105,14 +105,14 @@ export const About = () => {
                 <div className="card-eyebrow text-hl dark:text-amber-400">Vision</div>
               </div>
               <p className="mt-4 text-white/65 leading-relaxed flex-1">
-                To become a trusted partner that helps businesses scale with reliable remote professionals, while providing freelancers with stable, growth-oriented career opportunities
+                To become a trusted partner that helps businesses scale w/reliable remote professionals, while providing freelancers w/stable, growth-oriented career opportunities
               </p>
 
               <div className="mt-7 pt-6 border-t border-white/15 grid grid-cols-3 gap-3">
                 {["Professional", "Accountable", "Performance"].map((tag) => (
                   <div
                     key={tag}
-                    className="text-[12px] uppercase tracking-[0.18em] text-hl dark:text-amber-400 text-center"
+                    className="text-[12px] uppercase tracking-[0.18em] text-[#080656] dark:text-amber-400 text-center"
                   >
                     {tag}
                     {tag !== "Performance" && <>&nbsp;|</>}
