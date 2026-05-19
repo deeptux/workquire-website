@@ -20,13 +20,8 @@ export const About = () => {
             <span className="text-amber-400">ambition</span>.
           </h2>
           <p className="mt-5 text-white/65 text-base sm:text-lg leading-relaxed">
-            We&nbsp;
-            <span className="text-hl dark:text-amber-400">
-              recruit developed skilled individuals to match
-            </span>&nbsp;
-             them w/organizations that need specialized online services. From onboarding to execution,
-            we make collaboration simple, structured & effective w/professionalism, accountability &
-            performance at our core.
+            We bridge talent by recruiting & developing skilled individuals, matching them w/organizations
+            that need specialized online services & enabling smooth collaboration from onboarding to execution.
           </p>
         </motion.div>
 
@@ -46,11 +41,13 @@ export const About = () => {
               <div className="card-eyebrow text-hl dark:text-amber-400">Mission</div>
             </div>
             <h3 className="mt-5 font-display text-2xl sm:text-3xl text-white tracking-tight">
-              Operational excellence for clients <span className="text-amber-400">and</span> careers.
+              Operational excellence for clients and careers.
             </h3>
             <p className="mt-4 text-white/65 leading-relaxed">
-              We bridge talent by recruiting and developing skilled individuals, matching them w/organizations
-              that need specialized online services & enabling smooth collaboration from onboarding to execution.
+
+            </p>
+            <p className="mt-3 text-white/65 leading-relaxed">
+              We prioritize professionalism, accountability & performance helping clients achieve operational excellence, building career pathways for modern digital talent.
             </p>
           </motion.article>
 
@@ -67,12 +64,8 @@ export const About = () => {
               </span>
               <div className="card-eyebrow text-hl dark:text-amber-400">Vision</div>
             </div>
-            <h3 className="mt-5 font-display text-2xl sm:text-3xl text-white tracking-tight">
-              The trusted partner for scale.
-            </h3>
             <p className="mt-4 text-white/65 leading-relaxed">
-              To become a trusted partner that helps businesses scale w/reliable remote professionals,
-              while providing freelancers w/table, growth-oriented career opportunities.
+              To become a trusted partner that helps businesses scale with reliable remote professionals, while providing freelancers with stable, growth-oriented career opportunities
             </p>
 
             <div className="mt-7 pt-6 border-t border-white/10 grid grid-cols-3 gap-3">

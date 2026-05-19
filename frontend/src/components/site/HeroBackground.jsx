@@ -6,27 +6,27 @@ import * as THREE from "three";
  * the visual-edits babel plugin that injects JSX-source attributes.
  *
  * Scene swaps palette based on theme:
- *   - dark:  amber wireframe + cool-blue + amber/cool particles, dark vignette
- *   - light: deep-navy wireframe + sky-blue + blue particles, light vignette
+ *   - dark:  deep navy wireframe + cyan/blue particles, subtle deep vignette
+ *   - light: navy/blue wireframe + cyan particles, airy vignette
  */
 const PALETTES = {
   dark: {
-    inner: 0xf59e0b, innerOpacity: 0.55,
-    outer: 0x3b82f6, outerOpacity: 0.14,
-    primary: 0xf59e0b, secondary: 0x3b82f6,
-    coolThreshold: 0.78,
-    pointOpacity: 0.9,
+    inner: 0x79c2cf, innerOpacity: 0.48,
+    outer: 0x0767b3, outerOpacity: 0.18,
+    primary: 0x00b5d5, secondary: 0x79c2cf,
+    coolThreshold: 0.62,
+    pointOpacity: 0.84,
     vignette:
-      "radial-gradient(60% 50% at 50% 45%, rgba(11,17,32,0) 0%, rgba(11,17,32,0.55) 70%, rgba(11,17,32,1) 100%)",
+      "radial-gradient(60% 50% at 50% 45%, rgba(8,6,86,0) 0%, rgba(8,6,86,0.52) 72%, rgba(5,3,56,0.95) 100%)",
   },
   light: {
-    inner: 0x1e40af, innerOpacity: 0.55,
-    outer: 0x60a5fa, outerOpacity: 0.30,
-    primary: 0x2563eb, secondary: 0x60a5fa,
-    coolThreshold: 0.55,
-    pointOpacity: 0.85,
+    inner: 0x0767b3, innerOpacity: 0.46,
+    outer: 0x79c2cf, outerOpacity: 0.28,
+    primary: 0x00b5d5, secondary: 0x0767b3,
+    coolThreshold: 0.57,
+    pointOpacity: 0.78,
     vignette:
-      "radial-gradient(60% 50% at 50% 45%, rgba(234,244,255,0) 0%, rgba(234,244,255,0.5) 70%, rgba(234,244,255,1) 100%)",
+      "radial-gradient(60% 50% at 50% 45%, rgba(176,228,250,0) 0%, rgba(176,228,250,0.45) 70%, rgba(176,228,250,0.95) 100%)",
   },
 };
 

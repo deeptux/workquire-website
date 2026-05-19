@@ -45,7 +45,7 @@ export const Navbar = ({ onInquireVA, onInquireTeam }) => {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="px-3 py-2 text-sm font-medium text-white/75 hover:text-white transition-colors"
+                className="px-3 py-2 text-sm font-medium text-white/75 hover:text-amber-400 transition-colors"
                 data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 {l.label}

@@ -29,7 +29,7 @@ export const Footer = ({ onInquireVA, onInquireTeam }) => {
                 className="px-5 py-2.5 rounded-full border border-white/15 text-white hover:bg-white/5 transition text-sm"
                 data-testid="footer-inquire-va-btn"
               >
-                Inquire Talent Now
+                Get Talent Now
               </button>
               <button
                 onClick={onInquireTeam}
@@ -72,7 +72,7 @@ export const Footer = ({ onInquireVA, onInquireTeam }) => {
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-4 items-center justify-between text-xs text-white/40">
           <span>© {new Date().getFullYear()} WorkQuire. All rights reserved.</span>
-          <span className="tracking-[0.3em] uppercase text-amber-400/80">Work with confidence</span>
+          <span className="tracking-[0.3em] uppercase text-amber-400">Work with confidence</span>
         </div>
       </div>
     </footer>

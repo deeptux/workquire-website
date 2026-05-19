@@ -35,7 +35,7 @@ export const Milestones = () => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div className="max-w-xl">
             <div className="eyebrow">Milestones</div>
-            <h2 className="h-section mt-3 text-white">Referrals to a <span className="text-amber-400">talent engine</span></h2>
+            <h2 className="h-section mt-3 text-white">Referrals to a <span className="text-hl dark:text-amber-400">talent engine</span></h2>
           </div>
           <p className="text-white/55 max-w-md text-sm sm:text-base">
             Built on trusted connections. Refined into a structured, accountable hiring system.
