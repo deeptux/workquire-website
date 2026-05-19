@@ -6,7 +6,7 @@ steps:
     args:
       - build
       - -t
-      - asia-southeast1-docker.pkg.dev/deeptuxpopic/workquire-website/workquire-website:$COMMIT_SHA
+      - asia-southeast1-docker.pkg.dev/deeptuxworkquire/workquire-website/workquire-website:$COMMIT_SHA
       - -f
       - Dockerfile
       - .
@@ -16,7 +16,7 @@ steps:
     id: push
     args:
       - push
-      - asia-southeast1-docker.pkg.dev/deeptuxpopic/workquire-website/workquire-website:$COMMIT_SHA
+      - asia-southeast1-docker.pkg.dev/deeptuxworkquire/workquire-website/workquire-website:$COMMIT_SHA
 
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     id: deploy
@@ -25,8 +25,8 @@ steps:
       - run
       - deploy
       - workquire-website
-      - --project=deeptuxpopic
-      - --image=asia-southeast1-docker.pkg.dev/deeptuxpopic/workquire-website/workquire-website:$COMMIT_SHA
+      - --project=deeptuxworkquire
+      - --image=asia-southeast1-docker.pkg.dev/deeptuxworkquire/workquire-website/workquire-website:$COMMIT_SHA
       - --region=asia-southeast1
       - --platform=managed
       - --allow-unauthenticated
