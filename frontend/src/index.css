@@ -375,3 +375,38 @@ html:not(.dark) .text-hl { color: #0767B3 !important; }
 html:not(.dark) .text-hl-deep { color: #080656 !important; }
 html:not(.dark) .bg-hl { background-color: #00B5D5 !important; }
 .from-hl { --tw-gradient-from: #00B5D5 !important; }
+
+/* Mission / Vision photo cards — mode-specific text on image overlays */
+html:not(.dark) .on-image-card .text-white,
+html:not(.dark) .on-image-card h3 {
+  color: #080656 !important;
+  text-shadow: none;
+}
+html:not(.dark) .on-image-card .text-white\/65 {
+  color: rgba(8, 6, 86, 0.84) !important;
+}
+html:not(.dark) .on-image-card .text-white\/15 {
+  color: rgba(8, 6, 86, 0.35) !important;
+}
+html:not(.dark) .on-image-card .text-hl,
+html:not(.dark) .on-image-card .text-amber-400 {
+  color: #0767B3 !important;
+  text-shadow: none;
+}
+
+html.dark .on-image-card .text-white,
+html.dark .on-image-card h3 {
+  color: #F8FCFF !important;
+  text-shadow: 0 1px 2px rgba(5, 3, 56, 0.5);
+}
+html.dark .on-image-card .text-white\/65 {
+  color: rgba(234, 248, 253, 0.92) !important;
+}
+html.dark .on-image-card .text-white\/15 {
+  color: rgba(234, 248, 253, 0.35) !important;
+}
+html.dark .on-image-card .text-hl,
+html.dark .on-image-card .text-amber-400 {
+  color: #79C2CF !important;
+  text-shadow: 0 1px 1px rgba(5, 3, 56, 0.45);
+}
