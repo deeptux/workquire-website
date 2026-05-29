@@ -24,9 +24,14 @@ db = client[os.environ['DB_NAME']]
 # Resend setup
 RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
 SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
-NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'workquire@gmail.com')
 if RESEND_API_KEY:
     resend.api_key = RESEND_API_KEY
+
+
+def _notification_recipients() -> list[str]:
+    """Comma-separated NOTIFICATION_EMAIL env → list for Resend `to` field."""
+    raw = os.environ.get('NOTIFICATION_EMAIL', 'workquire@gmail.com')
+    return [e.strip() for e in raw.split(',') if e.strip()]
 
 # Configure logging early so helpers can use the logger safely
 logging.basicConfig(
@@ -137,7 +142,7 @@ async def send_inquiry_email(inq: Inquiry) -> bool:
     label = "VA" if inq.inquiry_type == "va" else "Team"
     params = {
         "from": f"WorkQuire <{SENDER_EMAIL}>",
-        "to": [NOTIFICATION_EMAIL],
+        "to": _notification_recipients(),
         "reply_to": inq.email,
         "subject": f"New {label} Inquiry — {inq.name}",
         "html": build_email_html(inq),
