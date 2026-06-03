@@ -40,6 +40,35 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# #region agent log
+_DEBUG_LOG = ROOT_DIR.parent / "debug-c4d022.log"
+
+
+def _agent_log(location: str, message: str, data: dict, hypothesis_id: str, run_id: str = "pre-fix") -> None:
+    import json
+    import time
+    try:
+        with open(_DEBUG_LOG, "a", encoding="utf-8") as f:
+            f.write(
+                json.dumps(
+                    {
+                        "sessionId": "c4d022",
+                        "hypothesisId": hypothesis_id,
+                        "location": location,
+                        "message": message,
+                        "data": data,
+                        "timestamp": int(time.time() * 1000),
+                        "runId": run_id,
+                    }
+                )
+                + "\n"
+            )
+    except Exception:
+        pass
+
+
+# #endregion
+
 # Create the main app without a prefix
 app = FastAPI(title="WorkQuire API")
 
@@ -93,12 +122,36 @@ class Inquiry(BaseModel):
 
 
 # ==================== HELPERS ====================
+EMAIL_BRAND = {
+    "bg_outer": "#080656",
+    "bg_card": "#070E48",
+    "bg_panel": "#050338",
+    "bg_header": "#070E48",
+    "accent": "#00B5D5",
+    "accent_strong": "#0767B3",
+    "text_primary": "#EAF8FD",
+    "text_muted": "#79C2CF",
+    "text_soft": "#B0E4FA",
+    "border": "#081F60",
+}
+
+
+def _email_row_value(key: str, value: str) -> str:
+    if key == "Email":
+        return (
+            f'<a href="mailto:{value}" style="color:{EMAIL_BRAND["accent"]};'
+            f'text-decoration:underline;">{value}</a>'
+        )
+    return value
+
+
 def build_email_html(inq: Inquiry) -> str:
+    c = EMAIL_BRAND
     label = "Virtual Assistant" if inq.inquiry_type == "va" else "Team / Multiple Roles"
     rows = [
         ("Inquiry Type", label),
         ("Name", inq.name),
-        ("Email", inq.email),
+        ("Email", str(inq.email)),
         ("Company", inq.company or "—"),
         ("Phone", inq.phone or "—"),
         ("Role / Skills", inq.role or "—"),
@@ -107,26 +160,27 @@ def build_email_html(inq: Inquiry) -> str:
     ]
     rows_html = "".join(
         f"""<tr>
-              <td style="padding:8px 14px;border-bottom:1px solid #1f2937;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;width:160px;">{k}</td>
-              <td style="padding:8px 14px;border-bottom:1px solid #1f2937;color:#f9fafb;font-size:14px;">{v}</td>
-            </tr>""" for k, v in rows
+              <td style="padding:10px 14px;border-bottom:1px solid {c['border']};color:{c['text_muted']};font-size:12px;text-transform:uppercase;letter-spacing:0.08em;width:160px;">{k}</td>
+              <td style="padding:10px 14px;border-bottom:1px solid {c['border']};color:{c['text_primary']};font-size:14px;">{_email_row_value(k, v)}</td>
+            </tr>"""
+        for k, v in rows
     )
     return f"""
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0b1120;padding:32px 0;font-family:Arial,Helvetica,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{c['bg_outer']};padding:32px 0;font-family:Arial,Helvetica,sans-serif;">
       <tr><td align="center">
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#111827;border:1px solid #1f2937;border-radius:16px;overflow:hidden;">
-          <tr><td style="padding:28px 32px;background:linear-gradient(135deg,#111827,#1f2937);border-bottom:2px solid #f59e0b;">
-            <div style="color:#f59e0b;letter-spacing:0.3em;font-size:11px;text-transform:uppercase;">WorkQuire</div>
-            <div style="color:#f9fafb;font-size:22px;font-weight:700;margin-top:6px;">New {label} Inquiry</div>
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:{c['bg_card']};border:1px solid {c['border']};border-radius:16px;overflow:hidden;">
+          <tr><td style="padding:28px 32px;background-color:{c['bg_header']};background:linear-gradient(135deg,{c['bg_header']},{c['border']});border-bottom:2px solid {c['accent']};">
+            <div style="color:{c['accent']};letter-spacing:0.3em;font-size:11px;text-transform:uppercase;">WorkQuire</div>
+            <div style="color:{c['text_primary']};font-size:22px;font-weight:700;margin-top:6px;">Client's {label} Inquiry</div>
           </td></tr>
           <tr><td style="padding:20px 18px;">
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows_html}</table>
-            <div style="margin-top:18px;padding:16px;background:#0b1120;border:1px solid #1f2937;border-radius:10px;">
-              <div style="color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Message</div>
-              <div style="color:#f9fafb;font-size:14px;line-height:1.6;white-space:pre-wrap;">{inq.message}</div>
+            <div style="margin-top:18px;padding:16px;background:{c['bg_panel']};border:1px solid {c['border']};border-radius:10px;">
+              <div style="color:{c['text_muted']};font-size:11px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Message</div>
+              <div style="color:{c['text_primary']};font-size:14px;line-height:1.6;white-space:pre-wrap;">{inq.message}</div>
             </div>
           </td></tr>
-          <tr><td style="padding:18px 32px;background:#0b1120;color:#6b7280;font-size:11px;">
+          <tr><td style="padding:18px 32px;background:{c['bg_panel']};color:{c['text_muted']};font-size:11px;">
             Sent automatically by the WorkQuire landing page.
           </td></tr>
         </table>
@@ -144,7 +198,7 @@ async def send_inquiry_email(inq: Inquiry) -> bool:
         "from": f"WorkQuire <{SENDER_EMAIL}>",
         "to": _notification_recipients(),
         "reply_to": inq.email,
-        "subject": f"New {label} Inquiry — {inq.name}",
+        "subject": f"New Client's {label} Inquiry — {inq.name}",
         "html": build_email_html(inq),
     }
     try:
@@ -169,17 +223,52 @@ async def health():
 
 @api_router.post("/inquiries", response_model=Inquiry)
 async def create_inquiry(payload: InquiryCreate):
+    # #region agent log
+    _agent_log(
+        "server.py:create_inquiry:entry",
+        "inquiry_create_started",
+        {"inquiry_type": payload.inquiry_type, "mongo_url_host": mongo_url.split("@")[-1][:40]},
+        "H1",
+    )
+    # #endregion
     inq = Inquiry(**payload.model_dump())
     email_sent = await send_inquiry_email(inq)
     inq.email_sent = email_sent
+    # #region agent log
+    _agent_log(
+        "server.py:create_inquiry:after_email",
+        "email_step_finished",
+        {"email_sent": email_sent},
+        "H2",
+    )
+    # #endregion
 
     doc = inq.model_dump()
     doc['created_at'] = doc['created_at'].isoformat()
     try:
         await db.inquiries.insert_one(doc)
+        # #region agent log
+        _agent_log(
+            "server.py:create_inquiry:after_db",
+            "db_insert_ok",
+            {"inquiry_id": inq.id},
+            "H1",
+        )
+        # #endregion
     except Exception as e:
+        # #region agent log
+        _agent_log(
+            "server.py:create_inquiry:db_error",
+            "db_insert_failed",
+            {"error_type": type(e).__name__, "error_msg": str(e)[:200], "email_sent": email_sent},
+            "H1",
+        )
+        # #endregion
         logger.error(f"DB insert failed: {e}")
-        raise HTTPException(status_code=500, detail="Could not save inquiry")
+        raise HTTPException(
+            status_code=500,
+            detail="Could not save inquiry. Database may be unavailable — ensure MongoDB is running on localhost:27017.",
+        )
     return inq
 
 

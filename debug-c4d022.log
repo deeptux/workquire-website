@@ -1,0 +1,3 @@
+{"sessionId": "c4d022", "hypothesisId": "H1", "location": "server.py:create_inquiry:entry", "message": "inquiry_create_started", "data": {"inquiry_type": "team", "mongo_url_host": "mongodb://localhost:27017"}, "timestamp": 1780324393280, "runId": "pre-fix"}
+{"sessionId": "c4d022", "hypothesisId": "H2", "location": "server.py:create_inquiry:after_email", "message": "email_step_finished", "data": {"email_sent": true}, "timestamp": 1780324395396, "runId": "pre-fix"}
+{"sessionId": "c4d022", "hypothesisId": "H1", "location": "server.py:create_inquiry:after_db", "message": "db_insert_ok", "data": {"inquiry_id": "c12a4037-2385-4816-b69b-76fc2bf157ee"}, "timestamp": 1780324395472, "runId": "pre-fix"}
